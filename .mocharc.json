@@ -1,0 +1,6 @@
+{
+	"extension": ["js"],
+	"require": ["esm"],
+	"ignore": ["node_modules"],
+	"recursive": true
+}
