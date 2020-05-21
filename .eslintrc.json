@@ -4,7 +4,7 @@
 	"rules": {
 		"prettier/prettier": "error"
 	},
-	"env": { "es2020": true },
+	"env": { "es2020": true, "node": true },
 	"parserOptions": { "sourceType": "module" },
 	"overrides": [
 		{
