@@ -6,20 +6,32 @@
 	"engines": {
 		"node": ">=14.3.0"
 	},
+	"repository": "github:gundelsby/beatlink-js",
+	"author": "Ola Christian Gundelsby <lug00ber@gmail.com>",
+	"license": "MIT",
 	"scripts": {
 		"test": "mocha \"./{,!(node_modules)/**}/*-test.js\"",
 		"test:watch": "npm run test -- --watch --reporter min",
-		"start": "node -r esm ."
+		"start": "node -r esm .",
+		"lint": "eslint ."
 	},
-	"author": "Ola Christian Gundelsby <lug00ber@gmail.com>",
-	"license": "MIT",
 	"devDependencies": {
 		"chai": "^4.2.0",
 		"eslint": "^7.0.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-prettier": "^3.1.3",
 		"esm": "^3.2.25",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.6",
 		"mocha": "^7.1.2",
 		"prettier": "^2.0.5"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint --cache --fix"
 	}
 }
