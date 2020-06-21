@@ -1,8 +1,15 @@
 {
-	"extends": ["eslint:recommended", "plugin:prettier/recommended"],
-	"plugins": ["prettier"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:mocha/recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["prettier", "mocha"],
 	"rules": {
-		"prettier/prettier": "error"
+		"prettier/prettier": "error",
+		"prefer-arrow-callback": 0,
+		"mocha/prefer-arrow-callback": 2,
+		"mocha/no-setup-in-describe": "off"
 	},
 	"env": { "es2020": true, "node": true },
 	"parserOptions": { "sourceType": "module" },
