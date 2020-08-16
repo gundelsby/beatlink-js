@@ -13,11 +13,13 @@
 		"test": "mocha \"./{,!(node_modules)/**}/*-test.js\"",
 		"test:watch": "npm run test -- --watch --reporter min",
 		"start": "node -r esm .",
+		"dev": "cross-env DEBUG=beatlink* node -r esm .",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix ."
 	},
 	"devDependencies": {
 		"chai": "^4.2.0",
+		"cross-env": "^7.0.2",
 		"eslint": "^7.0.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-mocha": "^7.0.1",
@@ -26,7 +28,8 @@
 		"husky": "^4.2.5",
 		"lint-staged": "^10.2.6",
 		"mocha": "^7.1.2",
-		"prettier": "^2.0.5"
+		"prettier": "^2.0.5",
+		"sinon": "^9.0.3"
 	},
 	"husky": {
 		"hooks": {
@@ -36,5 +39,8 @@
 	"lint-staged": {
 		"*.{json,md}": "prettier --write",
 		"*.js": "eslint --cache --cache-location \"tmp/.eslintcache\" --fix"
+	},
+	"dependencies": {
+		"debug": "^4.1.1"
 	}
 }
