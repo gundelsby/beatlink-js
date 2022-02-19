@@ -7,15 +7,18 @@
 	"plugins": ["prettier", "mocha"],
 	"rules": {
 		"prettier/prettier": "error",
-		"prefer-arrow-callback": 0,
-		"mocha/prefer-arrow-callback": 2,
-		"mocha/no-setup-in-describe": "off"
+		"prefer-arrow-callback": 0
 	},
 	"env": { "es2020": true, "node": true },
 	"parserOptions": { "sourceType": "module" },
 	"overrides": [
 		{
 			"files": ["*-test.js"],
+			"rules": {
+				"mocha/no-exports": 0,
+				"mocha/prefer-arrow-callback": 2,
+				"mocha/no-setup-in-describe": "off"
+			},
 			"env": {
 				"mocha": true,
 				"node": true
