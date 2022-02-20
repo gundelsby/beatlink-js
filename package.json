@@ -12,7 +12,7 @@
 	"license": "MIT",
 	"scripts": {
 		"test": "mocha \"./{,!(node_modules)/**}/*-test.js\"",
-		"test:watch": "npm run test -- --watch --reporter min",
+		"test:watch": "npm run test -- -w --parallel --reporter min",
 		"start": "node .",
 		"dev": "cross-env DEBUG=beatlink* node .",
 		"lint": "eslint .",

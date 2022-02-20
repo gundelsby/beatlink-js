@@ -1,7 +1,10 @@
 import { registry } from './lib/index.js';
+import BeatTrackingService from './lib/net/beat-tracking/BeatTrackingService.js';
 import { getLogger } from './lib/util/logger.js';
 
 const log = getLogger('main');
+
+new BeatTrackingService();
 
 registry.on('connected', ({ device }) => {
 	log('Device connected', { ...device });
