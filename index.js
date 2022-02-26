@@ -4,7 +4,10 @@ import { getLogger } from './lib/util/logger.js';
 
 const log = getLogger('main');
 
-new BeatTrackingService();
+const beatTracker = new BeatTrackingService();
+beatTracker.on('beat', ({ packet }) => {
+	log('Beat:', packet);
+});
 
 registry.on('connected', ({ device }) => {
 	log('Device connected', { ...device });
