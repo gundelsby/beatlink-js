@@ -1,11 +1,11 @@
 import { calcRealBpm } from './lib/helpers/tempoCalculations.js';
-import { registry } from './lib/index.js';
-import BeatTrackingService from './lib/net/beat-tracking/BeatTrackingService.js';
+import { networkServices, registry } from './lib/index.js';
 import { getLogger } from './lib/util/logger.js';
 
 const log = getLogger('main');
 
-const beatTracker = new BeatTrackingService();
+const beatTracker = networkServices.beatTrackingService;
+
 beatTracker.on('beat', ({ packet }) => {
 	log('Beat:', packet);
 	log('Real BPM', { bpm: calcRealBpm(packet.bpm, packet.pitch) });
