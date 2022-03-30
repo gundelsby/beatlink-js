@@ -4,7 +4,9 @@ import { getLogger } from './lib/util/logger.js';
 
 const log = getLogger('main');
 
-initialize().then(({ NetworkServices, registry }) => {
+const localIpAddress = '192.168.100.6';
+
+initialize(localIpAddress).then(({ NetworkServices, registry }) => {
 	const beatTracker = NetworkServices.beatTrackingService;
 
 	beatTracker.on('beat', ({ packet }) => {
