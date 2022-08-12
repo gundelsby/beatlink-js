@@ -9,7 +9,7 @@
 		"prettier/prettier": "error",
 		"prefer-arrow-callback": 0
 	},
-	"env": { "es2020": true, "node": true },
+	"env": { "es2022": true, "node": true },
 	"parserOptions": { "sourceType": "module" },
 	"overrides": [
 		{
