@@ -1,12 +1,11 @@
+import { networkInterfaces } from 'os';
 import { calcRealBpm } from './lib/helpers/tempoCalculations.js';
 import initialize from './lib/index.js';
 import { getLogger } from './lib/util/logger.js';
 
 const log = getLogger('main');
 
-const localIpAddress = '192.168.100.6';
-
-initialize(localIpAddress).then(({ NetworkServices, registry }) => {
+initialize(getLocalIpv4Props()).then(({ NetworkServices, registry }) => {
 	const beatTracker = NetworkServices.beatTrackingService;
 
 	beatTracker.on('beat', ({ packet }) => {
@@ -27,3 +26,17 @@ initialize(localIpAddress).then(({ NetworkServices, registry }) => {
 
 	log('Registered listeners on registry', registry);
 });
+
+function getLocalIpv4Props() {
+	const interfaces = networkInterfaces();
+	for (const iface of Object.keys(interfaces)) {
+		const ipv4Props = interfaces[iface]?.find(
+			({ family }) => family === 'IPv4'
+		);
+		if (ipv4Props?.internal === false) {
+			return ipv4Props;
+		}
+	}
+
+	return null;
+}
